@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'MainController@index');
+
+Route::group(['prefix' => 'calculator'], function() {
+    Route::get('/', 'CalculatorController@index')->name('calculator');
+    Route::post('/result', 'CalculatorController@result')->name('result');
+    Route::get('/teste', 'CalculatorController@teste')->name('teste');
 });
+
