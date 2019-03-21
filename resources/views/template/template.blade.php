@@ -18,5 +18,21 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
+        <script type="text/javascript">
+
+            function fillQuotation(element) {
+                $("#from_cep").val($(element).find(':selected').data('from-cep')).trigger('input');
+                $("#to_cep").val($(element).find(':selected').data('to-cep')).trigger('input');
+                $("#height").val($(element).find(':selected').data('height'));
+                $("#width").val($(element).find(':selected').data('width'));
+                $("#length").val($(element).find(':selected').data('length'));
+                $("#weight").val($(element).find(':selected').data('weight'));
+                $("#value").val($(element).find(':selected').data('value')).trigger('input');
+                $(element).find(':selected').data('ar') ? $("#ar").prop('checked',true) : $("#ar").prop('checked',false);
+                $(element).find(':selected').data('mp') ? $("#mp").prop('checked',true) : $("#mp").prop('checked',false);
+
+            }
+        </script>
+
     </body>
 </html>

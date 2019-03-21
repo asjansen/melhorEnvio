@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuotationTable extends Migration
+class CreateQuotationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateQuotationTable extends Migration
      */
     public function up()
     {
-        Schema::create('quotation', function (Blueprint $table) {
+        Schema::create('quotations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('from_cep');
-            $table->integer('to_cep');
-            $table->integer('height');
-            $table->integer('width');
-            $table->integer('length');
+            $table->bigInteger('from_cep');
+            $table->bigInteger('to_cep');
+            $table->bigInteger('height');
+            $table->bigInteger('width');
+            $table->bigInteger('length');
             $table->float('weight');
             $table->float('value');
-            $table->boolean('ar');
-            $table->boolean('mp');
+            $table->boolean('ar')->default(0);
+            $table->boolean('mp')->default(0);
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateQuotationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quotation');
+        Schema::dropIfExists('quotations');
     }
 }
